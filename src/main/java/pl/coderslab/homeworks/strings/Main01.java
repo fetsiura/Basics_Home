@@ -8,4 +8,8 @@ public class Main01 {
 
     }
 
+    public static String encode(String str){
+        return str;
+    }
+
 }
