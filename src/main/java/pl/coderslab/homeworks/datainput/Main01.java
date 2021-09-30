@@ -21,6 +21,7 @@ public class Main01 {
         System.out.println("Write surname");
         String surname = scanner.nextLine();
         System.out.println("Write name");
+
         String name = scanner.nextLine();
 
         System.out.println("Write year of birth");
