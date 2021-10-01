@@ -17,8 +17,8 @@ public class Main01 {
 
     public static void  getPhra() {
         Scanner scanner = new Scanner(System.in);
-        
-        
+        System.out.println();
+
 
         System.out.println("Write surname");
         String surname = scanner.nextLine();
