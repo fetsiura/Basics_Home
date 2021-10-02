@@ -8,52 +8,38 @@ import java.util.Scanner;
 public class Main01 {
     public static String [] arr = new String[0];
     public static void main(String[] args) {
-        getPhra();
-
-        System.out.println(Arrays.toString(arr));
-
-
-    }
-
-    public static void  getPhra() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println();
+        System.out.println("Wpisz: Imię Nazwisko Rok Urodzenia i Płeć");
+        String [] people= new String[0];
 
 
-        System.out.println("Write surname");
-        String surname = scanner.nextLine();
-        System.out.println("Write name");
-
-        String name = scanner.nextLine();
-
-        System.out.println("Write year of birth");
-
-        while (!scanner.hasNextInt()){
-            scanner.next();
-            System.out.println("only number");
+        while (!scanner.hasNext("quit")){
+            people = Arrays.copyOf(people,people.length+1);
+            people[people.length-1]=scanner.nextLine();
         }
-        int year = scanner.nextInt();
+        System.out.println(Arrays.toString(people));
 
-        String gender = "";
-        System.out.println("Write gender  -  only k or m");
-        do {
-            gender = scanner.nextLine();
+        System.out.println("osoby do emerytury");
 
-        } while (!(gender.equals("k") || gender.equals("m")));
+        String[] retirement = new String[0];
 
-        String input ="";
+        for(int i=0;i<people.length;i++){
 
-        do {
-            input = scanner.nextLine();
-            if(!input.equals("quit")){
-                System.out.println(input);
+            String [] re = people[i].split(" ");
+
+            if(re[3].equals("K") && Integer.parseInt(re[2]) <= 1960){
+                retirement=Arrays.copyOf(retirement,retirement.length+1);
+                retirement[retirement.length-1]=people[i];
+            }
+            if(re[3].equals("M") && Integer.parseInt(re[2]) <= 1955){
+                retirement=Arrays.copyOf(retirement,retirement.length+1);
+                retirement[retirement.length-1]=people[i];
             }
 
-        } while (!input.equals("quit"));
-        String res = String.join(" ", surname,name,String.valueOf(year),gender);
+        }
 
-        arr = Arrays.copyOf(arr,arr.length+1);
-        arr[arr.length-1] = res;
+        System.out.println(Arrays.toString(retirement));
+
     }
 
 }
